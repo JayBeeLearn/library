@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\WebBookController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $books = Book::with('user')->latest()->get();
+    return view('index', compact('books'));
 });
 
 
