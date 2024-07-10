@@ -16,28 +16,36 @@
     <body class="">
         <div class="main ">
             <nav class="text-white  bg-green-500  ">
-               <div class="py-2 px-4 sm:px-8 sm:flex justify-between md:px-16">
+               <div class="py-2 px-4 sm:px-8 flex justify-between md:px-16">
                     <div>
-                        <a href="/" class="text-3xl font-semibold">Open Library</a >
+                        <a href="/" class="text-2xl sm:text-3xl font-semibold">Open Library</a >
                     </div>
 
                     <div>
                         <div class="flex space-x-4 justify-center items-center">
-                            <a href="" class="block hover:underline">Add Books</a>
+                            <a href="{{ route('addNewBook') }}" class="block hover:underline">Add Books</a>
                             @guest
-                            <a href="" class="block hover:underline">Register</a>
+                            <a href="{{ route('register') }}" class="block hover:underline">Register</a>
+                            <a href="{{ route('login') }}" class="block hover:underline">Login</a>
                             @endguest
 
                             @auth
-                                <a href="" class="block hover:underline" >User</a>
-                                <a href="" class="block hover:underline" >Log Out</a>
+                                <a href="" class="block hover:underline" >{{ auth()->user()->name }}</a>
+                                <form action="{{ route('logout') }}" method="POST">
+
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" value="{{ auth()->user()->id }}">
+
+                                    <input type="submit" class="cursor-pointer hover:underline" value="Log Out">
+                                </form>
                             @endauth
                         </div>
                     </div>
                </div>
             </nav>
 
-           <div class="py-2 px-4 sm:px-8 sm:flex justify-between md:px-16">
+           <div class="py-2 px-4 sm:px-8  justify-between md:px-16">
              @yield('content')
            </div>
 
