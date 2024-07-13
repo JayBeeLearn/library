@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WEB\QueryController;
 use App\Http\Controllers\WEB\WebAuthorController;
 use App\Http\Controllers\WebAuthController;
 use App\Http\Controllers\WebBookController;
@@ -47,3 +48,6 @@ Route::delete('/books/{book}', [WebBookController::class, 'destroy'])->name('boo
 Route::get('/authors', [WebAuthorController::class, 'index'])->name('authors.index');
 Route::get('/author/show/{id}', [WebAuthorController::class, 'show'])->name('author.show');
 Route::put('/author/upgrade-account/{id}', [WebAuthorController::class, 'updateAccountToAuthor'])->name('updateAccountToAuthor');
+
+
+Route::post('/query', [QueryController::class, 'index'])->name('query');

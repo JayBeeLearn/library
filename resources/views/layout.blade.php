@@ -47,6 +47,17 @@
                     </div>
                </div>
             </nav>
+            <div class="flex place-items-end relative min-h-4 my-2 mx-4">
+                <form 
+                    action="{{ route('query') }}"
+                    method="POST"
+                    class="border-2 flex justify-between border-green-700 rounded-md  absolute top-0 right-0 sm:w-2/5 md:w-2/6" >
+
+                    @csrf
+                    <input type="text" name="query" class=" outline-none bg-transparent py-1 px-4 placeholder:text-sm" placeholder="Locate books and authors ...">
+                    <button class="bg-green-700 py-1 px-6 text-white rounded-r" type="submit">S   </button>
+                </form>
+            </div>
 
            <div class="py-2 px-4 sm:px-8  justify-between md:px-16">
              @yield('content')
