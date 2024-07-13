@@ -14,8 +14,7 @@
                     class="w-11/12 my-2 rounded-md p-2  border border-blue-300 " type="text" 
                     name="name" id="name"
                     autocomplete="off" 
-                      >
-
+                    >
                 @error('name')
                 <small class="block text-red-500 mx-4">{{ $message }} </small>
                 @enderror
@@ -26,8 +25,7 @@
                 <input 
                     class="w-11/12 my-2 rounded-md p-2  border border-blue-300 " type="email" 
                     name="email" id=""
-                    
-                    required  >
+                    required>
                 @error('email')
                 <small class="block text-red-500 mx-4">{{ $message }} </small>
                 @enderror

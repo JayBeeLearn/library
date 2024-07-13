@@ -5,9 +5,13 @@
         <h1 class="text-center text-xl font-bold text-blue-700 sm:text-2xl md:text-3xl">Login</h1>
 
     <div class="mx-4">
+         @if ($message = Session::get('message'))
+                <div class="alert rounded-lg inline-block text-red-500 p-2">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
         <form action="{{ route('login') }}" method="POST">
             @csrf
-           
 
            <div>
                 <label class="block" for="email">Email</label>

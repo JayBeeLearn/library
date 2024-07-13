@@ -25,6 +25,7 @@
                         <div class="flex justify-between items-center ">
                             <div class="flex  space-x-4">
                                 <a href="{{ route('addNewBook') }}" class="block hover:underline">Add Books</a>
+                                <a href="{{ route('authors.index') }}" class="block hover:underline">Authors </a>
                                 @guest
                                 <a href="{{ route('register') }}" class="block hover:underline">Register</a>
                                 <a href="{{ route('login') }}" class="block hover:underline">Login</a>

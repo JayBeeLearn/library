@@ -37,7 +37,9 @@ class WebAuthController extends Controller
     public function login(){
         $credentials = request(['email', 'password']);
 
-        auth()->attempt($credentials);
+        if(!auth()->attempt($credentials)){
+            return redirect()->route('login')->with('message', 'Invalid details, try again');
+        }
         
          // later change where this redirect will go after registering a new user
         return redirect()->intended('/')->with('success', 'User Logged In successfully');
