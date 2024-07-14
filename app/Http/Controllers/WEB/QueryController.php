@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\WEB;
 
-use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class QueryController extends Controller
 {
@@ -20,9 +21,14 @@ class QueryController extends Controller
                     ->where('overview', 'LIKE', '%' . $query . '%')
                     ->orWhere('title', 'LIKE', '%' . $query . '%')
                     ->orWhere('genre', 'LIKE', '%' . $query . '%')
-                    ->get();      
+                    ->get(); 
+                    
+        $authors = User::with('books')
+                    ->where('name', 'LIKE', '%' . $query . '%')->get(); 
 
-        return view('books.search', compact('results', 'query'));
+        // dd($authors);
+
+        return view('books.search', compact('results', 'authors', 'query'));
 
     }
 }

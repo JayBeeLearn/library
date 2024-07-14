@@ -2,13 +2,14 @@
 
 @section('content')
     <div>
-        <div class=" p-2 rounded-lg my-4 flex ">
-            <div class="w-[10%]">
-                <a href="{{ route('books') }}" class="bg-green-500 text-white  px-4 py-2 rounded-l-xl text-lg">Go Back </a>
-            </div>
-           <div class="flex  w-[90%]">
-                <h2 class="text-2xl sm:text-3xl mx-auto font-bold text-blue-600">{{ $book->title }}</h2>
+        <div class=" p-2 rounded-lg my-4  ">
+            
+           <div class="flex mb-4 ">
+                <h2 class="text-xl sm:text-3xl mx-auto font-bold text-blue-600">{{ $book->title }}</h2>
            </div>
+           <div class="">
+                <a href="{{ route('books') }}" class="bg-green-500 text-white  px-4 py-2 rounded-l-xl sm:text-lg">Go Back </a>
+            </div>
         </div>
         <div>
             <p>{{ $book->overview }}</p>
