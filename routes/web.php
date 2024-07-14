@@ -40,14 +40,14 @@ Route::get('/add-new-book', [WebBookController::class, 'addNewBook'])
         ->name('addNewBook')->middleware('auth');
 Route::post('/add-new-book', [WebBookController::class, 'store'])->name('book.store');
 Route::get('/books/{book}', [WebBookController::class, 'show'])->name('book.show');
-Route::get('/books/{book}/edit', [WebBookController::class, 'edit'])->name('book.edit');
-Route::put('/books/{book}/update', [WebBookController::class, 'update'])->name('book.update');
-Route::delete('/books/{book}', [WebBookController::class, 'destroy'])->name('book.delete');
+Route::get('/books/{book}/edit', [WebBookController::class, 'edit'])->name('book.edit')->middleware('auth');
+Route::put('/books/{book}/update', [WebBookController::class, 'update'])->name('book.update')->middleware('auth');
+Route::delete('/books/{book}', [WebBookController::class, 'destroy'])->name('book.delete')->middleware('auth');
 
 
 Route::get('/authors', [WebAuthorController::class, 'index'])->name('authors.index');
 Route::get('/author/show/{id}', [WebAuthorController::class, 'show'])->name('author.show');
-Route::put('/author/upgrade-account/{id}', [WebAuthorController::class, 'updateAccountToAuthor'])->name('updateAccountToAuthor');
+Route::put('/author/upgrade-account/{id}', [WebAuthorController::class, 'updateAccountToAuthor'])->name('updateAccountToAuthor')->middleware('auth');
 
 
 Route::post('/query', [QueryController::class, 'index'])->name('query');
