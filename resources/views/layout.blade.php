@@ -54,7 +54,7 @@
                     class="border-2 flex justify-between border-green-700 rounded-md  absolute top-0 right-0 sm:w-2/5 md:w-2/6" >
 
                     @csrf
-                    <input type="text" name="query" class=" outline-none bg-transparent py-1 px-4 placeholder:text-sm" placeholder="Locate books and authors ...">
+                    <input type="text" name="query" class=" outline-none bg-transparent py-1 px-4 placeholder:text-sm" placeholder="Locate books and authors ..." required>
                     <button class="bg-green-700 py-1 px-6 text-white rounded-r" type="submit">S   </button>
                 </form>
             </div>

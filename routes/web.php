@@ -51,3 +51,4 @@ Route::put('/author/upgrade-account/{id}', [WebAuthorController::class, 'updateA
 
 
 Route::post('/query', [QueryController::class, 'index'])->name('query');
+// Route::get('/query', [QueryController::class, 'index'])->name('query');

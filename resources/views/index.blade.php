@@ -9,6 +9,14 @@
                 </div>
             @endif
         </div>
+
+        <div class="container mt-2">
+            @if ($message = Session::get('query'))
+                <div class="alert rounded-lg inline-block text-red-600 p-2">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+        </div>
         <div>
             <div class="block sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-2">
             @foreach ($books as $book)

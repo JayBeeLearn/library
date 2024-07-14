@@ -3,6 +3,15 @@
 
 @section('content')
     <div>
+
+        <div class="container mt-2">
+            @if ($message = Session::get('success'))
+                <div class="alert rounded-lg inline-block text-red p-2">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+        </div>
+
         @if (count($results)>1)
             <p>Your search for <span class="font-bold">{{ $query }}</span> returned {{ count($results) }} results </p>
         @else

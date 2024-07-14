@@ -12,15 +12,15 @@ class QueryController extends Controller
     public function index(Request $request){
         $query = $request->get('query');
 
-
-
-
+        if(!$query){
+            return redirect()->route('books')->with('query', 'Search term required' );
+        }
 
         $results = Book::with('user')
                     ->where('overview', 'LIKE', '%' . $query . '%')
                     ->orWhere('title', 'LIKE', '%' . $query . '%')
                     ->orWhere('genre', 'LIKE', '%' . $query . '%')
-                    ->get();
+                    ->get();      
 
         return view('books.search', compact('results', 'query'));
 
