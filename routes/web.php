@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WEB\QueryController;
 use App\Http\Controllers\WEB\WebAuthorController;
 use App\Http\Controllers\WebAuthController;
@@ -51,4 +52,8 @@ Route::put('/author/upgrade-account/{id}', [WebAuthorController::class, 'updateA
 
 
 Route::post('/query', [QueryController::class, 'index'])->name('query');
-// Route::get('/query', [QueryController::class, 'index'])->name('query');
+
+
+Route::get('/books/{book}/review/create', [ReviewController::class, 'create'])->name('review.create')->middleware('auth');
+Route::post('/review/{book}', [ReviewController::class, 'store'])->name('review.store');
+Route::delete('/delete/review/{id}', [ReviewController::class, 'destroy'])->name('review.destroy'); 

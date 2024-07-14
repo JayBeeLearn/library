@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class WebBookController extends Controller
 {
     public function index(){
-        $books = Book::latest()->get();
+        $books = Book::with('reviews')->latest()->get();
+
+        // dd($books);
         return view('index', compact('books'));
     }
     public function addNewBook(){
