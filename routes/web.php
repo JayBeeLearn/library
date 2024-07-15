@@ -3,8 +3,8 @@
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WEB\QueryController;
 use App\Http\Controllers\WEB\WebAuthorController;
-use App\Http\Controllers\WebAuthController;
-use App\Http\Controllers\WebBookController;
+use App\Http\Controllers\WEB\WebAuthController;
+use App\Http\Controllers\WEB\WebBookController;
 use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 

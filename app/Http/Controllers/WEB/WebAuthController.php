@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class WebAuthController extends Controller
@@ -28,7 +29,7 @@ class WebAuthController extends Controller
             'password'=> Hash::make(request('password'),),
         ]);
 
-        auth()->attempt($request->only(['email', 'password']));
+        auth('web')->attempt($request->only(['email', 'password']));
 
         // later change where this redirect will go after registering a new user
         return redirect()->intended('/')->with('success', 'User Created successfully');
@@ -37,7 +38,7 @@ class WebAuthController extends Controller
     public function login(){
         $credentials = request(['email', 'password']);
 
-        if(!auth()->attempt($credentials)){
+        if(!auth('web')->attempt($credentials)){
             return redirect()->route('login')->with('message', 'Invalid details, try again');
         }
         
@@ -47,7 +48,7 @@ class WebAuthController extends Controller
 
     public function logout(){
 
-        auth()->logout();
+        auth('web')->logout();
 
         return redirect('/');
     }
