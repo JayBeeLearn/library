@@ -25,13 +25,19 @@
                 @foreach ($book->reviews as $review)
                     <div class="flex bg-green-100 rounded-md">
                         <p class="ml-4 px-4 py-2">{{ $review->review }}</p>
-                        <a href="" class="text-yellow-600 px-4 py-2 font-bold rounded-md ">Edit</a>
-                        <form action="{{ route('review.destroy',$review->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" value="{{ $review->id }}">
-                            <button class="text-red-600 px-4 py-2 font-bold rounded-md " type="submit">Delete</button>
-                        </form>
+                        
+
+                        @auth
+                            @if (auth()->user()->id === $review->user_id)
+                                <a href="" class="text-yellow-600 px-4 py-2 font-bold rounded-md ">Edit</a>
+                                <form action="{{ route('review.destroy',$review->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" value="{{ $review->id }}">
+                                    <button class="text-red-600 px-4 py-2 font-bold rounded-md " type="submit">Delete</button>
+                                </form>
+                            @endif
+                        @endauth
 
                     </div>
                 @endforeach
