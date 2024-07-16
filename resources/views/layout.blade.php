@@ -47,7 +47,7 @@
                     </div>
                </div>
             </nav>
-            <div class="flex place-items-end relative min-h-4 my-2 mx-4">
+            <div class="flex place-items-end relative min-h-4 my-2 mx-4 sm:mx-8 md:mx-16">
                 <form 
                     action="{{ route('query') }}"
                     method="POST"

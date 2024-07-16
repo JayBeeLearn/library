@@ -59,7 +59,7 @@ class WebBookController extends Controller
 
 
         $request = Request::create('/api/auth/books', 'POST', $newBook);
-        // $request->headers->set('Authorization', 'Bearer'. $token);
+        $request->headers->set('Authorization', 'Bearer'. $token);
         // dd($request->headers);
         $response = Route::dispatch($request);
 
